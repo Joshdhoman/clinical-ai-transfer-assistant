@@ -9,6 +9,9 @@ __pycache__/
 .streamlit/secrets.toml
 audit/*.jsonl
 artifacts/*.joblib
+# Exception: the routing tree is committed so the hosted demo can show the
+# ML comparison tab. It is 8 KB and reproducible from scripts/build_project.py.
+!artifacts/routing_tree.joblib
 *.log
 .ipython/
 *.egg-info/

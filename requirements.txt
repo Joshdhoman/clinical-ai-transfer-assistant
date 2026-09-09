@@ -8,3 +8,8 @@
 # snapshot recorded for reproducing the reported run, and contains
 # platform-specific packages that will not install on Linux builders.
 .
+
+# Pinned to the version that produced artifacts/routing_tree.joblib, so the
+# committed model unpickles against a matching scikit-learn. Rebuild the
+# artifact with scripts/build_project.py if you raise this.
+scikit-learn==1.9.0
