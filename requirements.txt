@@ -1,0 +1,10 @@
+# Streamlit Community Cloud installs from this file.
+#
+# The single "." installs this repository as a package, which is what puts
+# src/transfer_assistant on the import path for app.py. Runtime dependencies
+# come with it from pyproject.toml, so they are not duplicated here.
+#
+# Do not use requirements-lock.txt for deployment — it is a Windows/Python 3.12
+# snapshot recorded for reproducing the reported run, and contains
+# platform-specific packages that will not install on Linux builders.
+.
