@@ -1,0 +1,17 @@
+field,n,exact_match_accuracy,precision,recall,f1,tp,fp,fn
+patient_age,250,1.0,1.0,1.0,1.0,228,0,0
+presenting_problem,250,1.0,1.0,1.0,1.0,235,0,0
+requested_service,250,1.0,1.0,1.0,1.0,233,0,0
+requested_level_of_care,250,1.0,1.0,1.0,1.0,233,0,0
+oxygen_support,250,1.0,1.0,1.0,1.0,241,0,0
+vasopressor_use,250,1.0,1.0,1.0,1.0,229,0,0
+isolation_requirements,250,1.0,1.0,1.0,1.0,227,0,0
+relevant_consultants,250,1.0,1.0,1.0,1.0,232,0,0
+referring_facility,250,1.0,1.0,1.0,1.0,236,0,0
+transfer_urgency,250,1.0,1.0,1.0,1.0,233,0,0
+bed_availability,250,1.0,1.0,1.0,1.0,231,0,0
+systolic_bp,250,1.0,1.0,1.0,1.0,234,0,0
+heart_rate,250,1.0,1.0,1.0,1.0,231,0,0
+spo2,250,1.0,1.0,1.0,1.0,233,0,0
+monitoring_required,250,1.0,1.0,1.0,1.0,221,0,0
+specialty_need,250,1.0,1.0,1.0,1.0,237,0,0

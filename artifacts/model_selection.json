@@ -1,0 +1,21 @@
+{
+  "selected_depth": 6,
+  "candidates": [
+    {
+      "max_depth": 3,
+      "validation_macro_f1": 0.9093425938038505
+    },
+    {
+      "max_depth": 4,
+      "validation_macro_f1": 0.9838537287621417
+    },
+    {
+      "max_depth": 5,
+      "validation_macro_f1": 0.9838537287621417
+    },
+    {
+      "max_depth": 6,
+      "validation_macro_f1": 0.9921893775534727
+    }
+  ]
+}

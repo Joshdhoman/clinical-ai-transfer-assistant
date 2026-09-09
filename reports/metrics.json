@@ -1,0 +1,310 @@
+{
+  "rules": {
+    "n": 250,
+    "accuracy": 0.732,
+    "macro_precision": 1.0,
+    "macro_recall": 0.7069561888739149,
+    "macro_f1": 0.8184697855750488,
+    "coverage": 0.732,
+    "selective_accuracy": 1.0,
+    "icu_false_positives": 0,
+    "icu_false_negatives": 2,
+    "icu_fn_abstentions": 2,
+    "per_class": {
+      "ICU": {
+        "precision": 1.0,
+        "recall": 0.975609756097561,
+        "f1-score": 0.9876543209876543,
+        "support": 82.0
+      },
+      "telemetry": {
+        "precision": 1.0,
+        "recall": 0.6056338028169014,
+        "f1-score": 0.7543859649122807,
+        "support": 71.0
+      },
+      "medical/surgical": {
+        "precision": 1.0,
+        "recall": 0.5576923076923077,
+        "f1-score": 0.7160493827160493,
+        "support": 52.0
+      },
+      "specialty review": {
+        "precision": 1.0,
+        "recall": 0.6888888888888889,
+        "f1-score": 0.8157894736842105,
+        "support": 45.0
+      },
+      "micro avg": {
+        "precision": 1.0,
+        "recall": 0.732,
+        "f1-score": 0.8452655889145496,
+        "support": 250.0
+      },
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 0.7069561888739149,
+        "f1-score": 0.8184697855750488,
+        "support": 250.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 0.732,
+        "f1-score": 0.8339766081871345,
+        "support": 250.0
+      }
+    },
+    "confusion_labels": [
+      "ICU",
+      "telemetry",
+      "medical/surgical",
+      "specialty review",
+      "insufficient information"
+    ],
+    "confusion_matrix": [
+      [
+        80,
+        0,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        43,
+        0,
+        0,
+        28
+      ],
+      [
+        0,
+        0,
+        29,
+        0,
+        23
+      ],
+      [
+        0,
+        0,
+        0,
+        31,
+        14
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "decision_tree": {
+    "n": 250,
+    "accuracy": 0.976,
+    "macro_precision": 0.9748462448829133,
+    "macro_recall": 0.9742656795473698,
+    "macro_f1": 0.9743820591817198,
+    "coverage": 1.0,
+    "selective_accuracy": 0.976,
+    "icu_false_positives": 1,
+    "icu_false_negatives": 0,
+    "icu_fn_abstentions": 0,
+    "per_class": {
+      "ICU": {
+        "precision": 0.9879518072289156,
+        "recall": 1.0,
+        "f1-score": 0.9939393939393939,
+        "support": 82.0
+      },
+      "telemetry": {
+        "precision": 0.9855072463768116,
+        "recall": 0.9577464788732394,
+        "f1-score": 0.9714285714285714,
+        "support": 71.0
+      },
+      "medical/surgical": {
+        "precision": 0.9259259259259259,
+        "recall": 0.9615384615384616,
+        "f1-score": 0.9433962264150944,
+        "support": 52.0
+      },
+      "specialty review": {
+        "precision": 1.0,
+        "recall": 0.9777777777777777,
+        "f1-score": 0.9887640449438202,
+        "support": 45.0
+      },
+      "accuracy": 0.976,
+      "macro avg": {
+        "precision": 0.9748462448829133,
+        "recall": 0.9742656795473698,
+        "f1-score": 0.9743820591817198,
+        "support": 250.0
+      },
+      "weighted avg": {
+        "precision": 0.9765248433346915,
+        "recall": 0.976,
+        "f1-score": 0.9761017786820628,
+        "support": 250.0
+      }
+    },
+    "confusion_labels": [
+      "ICU",
+      "telemetry",
+      "medical/surgical",
+      "specialty review",
+      "insufficient information"
+    ],
+    "confusion_matrix": [
+      [
+        82,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        68,
+        3,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        50,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        44,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "majority_baseline": {
+    "n": 250,
+    "accuracy": 0.328,
+    "macro_precision": 0.082,
+    "macro_recall": 0.25,
+    "macro_f1": 0.12349397590361445,
+    "coverage": 1.0,
+    "selective_accuracy": 0.328,
+    "icu_false_positives": 168,
+    "icu_false_negatives": 0,
+    "icu_fn_abstentions": 0,
+    "per_class": {
+      "ICU": {
+        "precision": 0.328,
+        "recall": 1.0,
+        "f1-score": 0.4939759036144578,
+        "support": 82.0
+      },
+      "telemetry": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 71.0
+      },
+      "medical/surgical": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 52.0
+      },
+      "specialty review": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 45.0
+      },
+      "accuracy": 0.328,
+      "macro avg": {
+        "precision": 0.082,
+        "recall": 0.25,
+        "f1-score": 0.12349397590361445,
+        "support": 250.0
+      },
+      "weighted avg": {
+        "precision": 0.107584,
+        "recall": 0.328,
+        "f1-score": 0.16202409638554216,
+        "support": 250.0
+      }
+    },
+    "confusion_labels": [
+      "ICU",
+      "telemetry",
+      "medical/surgical",
+      "specialty review",
+      "insufficient information"
+    ],
+    "confusion_matrix": [
+      [
+        82,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        71,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        52,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        45,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "missing_information": {
+    "unit": "critical field per test note",
+    "positive": "unavailable (absent or conflicting)",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        2549,
+        0
+      ],
+      [
+        0,
+        201
+      ]
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "checks": {
+    "row_count": true,
+    "unique_ids": true,
+    "unique_notes": true,
+    "all_synthetic": true,
+    "age_range": true,
+    "vital_ranges": true,
+    "required_columns": true,
+    "all_routes": true,
+    "fictional_facilities": true,
+    "synthetic_note_marker": true,
+    "no_template_overlap": true,
+    "complete_source_truth": true,
+    "annotation_keys": true,
+    "annotation_lineage": true,
+    "routes_in_each_split": true
+  },
+  "rows": 1000,
+  "seed": 20260909,
+  "class_counts": {
+    "ICU": 303,
+    "telemetry": 251,
+    "medical/surgical": 244,
+    "specialty review": 202
+  },
+  "split_counts": {
+    "train": 625,
+    "test": 250,
+    "validation": 125
+  },
+  "records_with_omissions": 685,
+  "records_with_conflicts": 39
+}

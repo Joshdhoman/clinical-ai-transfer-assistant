@@ -1,0 +1,21 @@
+case,note,field,expected,actual,passed
+explicit negative,No vasopressors.,vasopressor_use,False,False,True
+absent support,Age: 61.,vasopressor_use,,,True
+absent support,Age: 61.,oxygen_support,,,True
+negated ventilation,Not intubated. Currently on room air.,oxygen_support,room air,room air,True
+historical ventilation,History of prior mechanical ventilation.,oxygen_support,,,True
+conditional support,"If deterioration occurs, consider norepinephrine.",vasopressor_use,,,True
+conflicting pressors,No vasopressors. Currently on norepinephrine.,vasopressor_use,,,True
+HFNC abbreviation,Currently on HFNC.,oxygen_support,high-flow nasal cannula,high-flow nasal cannula,True
+NIV abbreviation,On BiPAP.,oxygen_support,noninvasive ventilation,noninvasive ventilation,True
+numeric boundaries,Age: 54. Service: cardiology. HR 95. Isolation: none.,requested_service,cardiology,cardiology,True
+numeric boundaries,Age: 54. Service: cardiology. HR 95. Isolation: none.,isolation_requirements,none,none,True
+unknown isolation,Isolation: unknown.,isolation_requirements,,,True
+device contradiction,Currently on room air. Intubated.,oxygen_support,,,True
+vital contradiction,SBP 80 mmHg. SBP 120 mmHg.,systolic_bp,,,True
+abbreviation outside lexicon,Levo gtt at 0.05 mcg/kg/min.,vasopressor_use,True,,False
+resolved device transition,"Extubated this morning, now on 2L NC.",oxygen_support,nasal cannula,nasal cannula,True
+negation across conjunction,No norepinephrine or vasopressin running.,vasopressor_use,False,False,True
+hypothetical device,May need BiPAP overnight.,oxygen_support,,noninvasive ventilation,False
+temporal oxygen transition,"Previously on BiPAP, currently on room air.",oxygen_support,room air,room air,True
+unsupported isolation synonym,Enteric precautions required.,isolation_requirements,contact,,False

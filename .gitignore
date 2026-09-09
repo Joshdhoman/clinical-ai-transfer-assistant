@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+audit/*.jsonl
+artifacts/*.joblib
+*.log
+.ipython/
+*.egg-info/
+.browser-tools/

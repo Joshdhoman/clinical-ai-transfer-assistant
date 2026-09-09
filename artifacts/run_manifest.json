@@ -1,0 +1,51 @@
+{
+  "seed": 20260909,
+  "python": "3.12.4",
+  "features": [
+    "oxygen_support",
+    "vasopressor_use",
+    "monitoring_required",
+    "specialty_need",
+    "requested_service",
+    "systolic_bp",
+    "heart_rate",
+    "spo2"
+  ],
+  "packages": {
+    "pandas": "2.3.3",
+    "numpy": "2.5.3",
+    "scikit-learn": "1.9.0",
+    "streamlit": "1.63.0",
+    "plotly": "6.9.0",
+    "matplotlib": "3.11.1"
+  },
+  "split_counts": {
+    "train": 625,
+    "test": 250,
+    "validation": 125
+  },
+  "selection": {
+    "selected_depth": 6,
+    "candidates": [
+      {
+        "max_depth": 3,
+        "validation_macro_f1": 0.9093425938038505
+      },
+      {
+        "max_depth": 4,
+        "validation_macro_f1": 0.9838537287621417
+      },
+      {
+        "max_depth": 5,
+        "validation_macro_f1": 0.9838537287621417
+      },
+      {
+        "max_depth": 6,
+        "validation_macro_f1": 0.9921893775534727
+      }
+    ]
+  },
+  "dataset_sha256": "3bde38cea1c0f06f5c211daecd6fc4fb9c7a9f587c38c4cb5e5a9f325739753c",
+  "test_use": "Excluded from fitting and hyperparameter selection; development test diagnostics informed parser bug fixes. Not independent external validation.",
+  "simulation_caveat": "Labels and vocabulary derive from one authored scenario generator; metrics are not clinical validation."
+}

@@ -1,0 +1,7 @@
+{
+  "cases": 18,
+  "field_assertions": 20,
+  "passed": 17,
+  "failed": 3,
+  "purpose": "Authored diagnostic regression cases, not clinical validation."
+}

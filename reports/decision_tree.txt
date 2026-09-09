@@ -1,0 +1,40 @@
+|--- categorical__specialty_need_True <= 0.50
+|   |--- categorical__monitoring_required_False <= 0.50
+|   |   |--- categorical__oxygen_support_room air <= 0.50
+|   |   |   |--- numeric__heart_rate <= 94.50
+|   |   |   |   |--- numeric__heart_rate <= 78.00
+|   |   |   |   |   |--- class: telemetry
+|   |   |   |   |--- numeric__heart_rate >  78.00
+|   |   |   |   |   |--- class: telemetry
+|   |   |   |--- numeric__heart_rate >  94.50
+|   |   |   |   |--- categorical__requested_service_cardiology <= 0.50
+|   |   |   |   |   |--- categorical__oxygen_support_unknown <= 0.50
+|   |   |   |   |   |   |--- class: ICU
+|   |   |   |   |   |--- categorical__oxygen_support_unknown >  0.50
+|   |   |   |   |   |   |--- class: ICU
+|   |   |   |   |--- categorical__requested_service_cardiology >  0.50
+|   |   |   |   |   |--- numeric__systolic_bp <= 106.50
+|   |   |   |   |   |   |--- class: ICU
+|   |   |   |   |   |--- numeric__systolic_bp >  106.50
+|   |   |   |   |   |   |--- class: telemetry
+|   |   |--- categorical__oxygen_support_room air >  0.50
+|   |   |   |--- categorical__monitoring_required_unknown <= 0.50
+|   |   |   |   |--- categorical__requested_service_cardiology <= 0.50
+|   |   |   |   |   |--- numeric__systolic_bp <= 126.50
+|   |   |   |   |   |   |--- class: telemetry
+|   |   |   |   |   |--- numeric__systolic_bp >  126.50
+|   |   |   |   |   |   |--- class: telemetry
+|   |   |   |   |--- categorical__requested_service_cardiology >  0.50
+|   |   |   |   |   |--- numeric__heart_rate <= 67.00
+|   |   |   |   |   |   |--- class: telemetry
+|   |   |   |   |   |--- numeric__heart_rate >  67.00
+|   |   |   |   |   |   |--- class: telemetry
+|   |   |   |--- categorical__monitoring_required_unknown >  0.50
+|   |   |   |   |--- class: medical/surgical
+|   |--- categorical__monitoring_required_False >  0.50
+|   |   |--- categorical__specialty_need_False <= 0.50
+|   |   |   |--- class: medical/surgical
+|   |   |--- categorical__specialty_need_False >  0.50
+|   |   |   |--- class: medical/surgical
+|--- categorical__specialty_need_True >  0.50
+|   |--- class: specialty review
