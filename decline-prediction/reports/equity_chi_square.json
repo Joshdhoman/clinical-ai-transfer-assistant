@@ -1,0 +1,46 @@
+{
+  "payer_vs_decision": {
+    "chi2": 5.3923945632906,
+    "p_value": 0.24935124544855392,
+    "dof": 4,
+    "cramers_v": 0.024477641869198378,
+    "n": 9000,
+    "significant_at_0.05": false,
+    "table": {
+      "0": {
+        "Commercial": 2437,
+        "Medicaid": 1240,
+        "Medicare": 3188,
+        "Self-Pay / Uninsured": 460,
+        "Unknown": 222
+      },
+      "1": {
+        "Commercial": 440,
+        "Medicaid": 269,
+        "Medicare": 622,
+        "Self-Pay / Uninsured": 81,
+        "Unknown": 41
+      }
+    }
+  },
+  "medsurg_occupancy_vs_decision": {
+    "chi2": 799.6587423955827,
+    "p_value": 2.2714876815872533e-174,
+    "dof": 2,
+    "cramers_v": 0.29807880061702974,
+    "n": 9000,
+    "significant_at_0.05": true,
+    "table": {
+      "0": {
+        "<85%": 3606,
+        "85-95%": 3183,
+        ">95%": 758
+      },
+      "1": {
+        "<85%": 264,
+        "85-95%": 678,
+        ">95%": 511
+      }
+    }
+  }
+}

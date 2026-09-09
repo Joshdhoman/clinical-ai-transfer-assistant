@@ -1,0 +1,18 @@
+{
+  "rows": 9000,
+  "no_exact_duplicates": true,
+  "target_is_binary": true,
+  "decline_rate": 0.1614,
+  "facility_type_no_nulls_after_norm": true,
+  "transport_mode_values": [
+    "Ground ALS",
+    "Referring Facility Transport",
+    "Rotor Wing"
+  ],
+  "split_counts": {
+    "train": 5400,
+    "validation": 1800,
+    "test": 1800
+  },
+  "splits_are_time_ordered": true
+}

@@ -1,0 +1,40 @@
+{
+  "reference_payer": "Commercial",
+  "n_complete_case": 8601,
+  "adjustment_terms": [
+    "acuity_score",
+    "icu_occupancy_pct",
+    "medsurg_occupancy_pct",
+    "ed_boarding_count",
+    "C(requested_service_line)",
+    "C(requested_level_of_care)"
+  ],
+  "any_payer_term_significant_at_0.05": false,
+  "odds_ratios": [
+    {
+      "payer": "Medicaid",
+      "reference": "Commercial",
+      "odds_ratio": 1.1848893167929413,
+      "ci_low": 0.9888156892499693,
+      "ci_high": 1.4198426545142795,
+      "p_value": 0.06604731375367491
+    },
+    {
+      "payer": "Medicare",
+      "reference": "Commercial",
+      "odds_ratio": 1.0814224596866886,
+      "ci_low": 0.9359784400667543,
+      "ci_high": 1.2494673875515765,
+      "p_value": 0.2881563832445019
+    },
+    {
+      "payer": "Self-Pay / Uninsured",
+      "reference": "Commercial",
+      "odds_ratio": 0.9537029234750295,
+      "ci_low": 0.7199145390359026,
+      "ci_high": 1.2634128315603559,
+      "p_value": 0.7411157644659359
+    }
+  ],
+  "reading": "No payer term is significant after adjusting for case mix; consistent with payer being unrelated to the decision in this synthetic data."
+}

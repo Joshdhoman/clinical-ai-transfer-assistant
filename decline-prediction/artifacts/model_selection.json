@@ -1,0 +1,9 @@
+{
+  "threshold": 0.17,
+  "validation_weighted_cost": 691.0,
+  "validation_precision": 0.29338842975206614,
+  "validation_recall": 0.4057142857142857,
+  "cost_false_negative": 5.0,
+  "cost_false_positive": 1.0,
+  "default_threshold_cost": 867.0
+}

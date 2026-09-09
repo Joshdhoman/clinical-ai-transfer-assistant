@@ -1,0 +1,21 @@
+# Streamlit Community Cloud installs from this file when the app's main file is
+# decline-prediction/app.py. Dependencies are listed explicitly rather than as
+# "." — pip resolves "." against the repository root, which would install the
+# transfer-assistant package instead of this project.
+#
+# app.py puts decline-prediction/src on sys.path itself, so the hosted demo needs
+# no install step. For local development use the editable install:
+#   cd decline-prediction && pip install -e ".[dev]"
+
+streamlit>=1.49,<2
+pandas>=2.2,<3
+numpy>=1.26,<3
+statsmodels>=0.14,<1
+scipy>=1.11,<2
+matplotlib>=3.8,<4
+joblib>=1.3,<2
+
+# Pinned to the version that produced artifacts/decline_model.joblib so the
+# committed pipeline unpickles against a matching scikit-learn. Rebuild the
+# artifact with scripts/build_project.py if you raise this.
+scikit-learn==1.9.0

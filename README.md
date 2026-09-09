@@ -4,6 +4,15 @@ An interview-ready healthcare operations portfolio project connecting transfer-c
 
 **Synthetic data only. Decision support only. Not validated for clinical use. Not affiliated with or endorsed by Rush University Medical Center.**
 
+## Two projects in this repository
+
+| | |
+|---|---|
+| **Repository root** | **Clinical AI Workflow Assistant** — rule-based NLP extraction with evidence, an interpretable routing model, and a human review workbench. Documented below. |
+| [`decline-prediction/`](decline-prediction/README.md) | **Transfer Center Decline Prediction & Payer-Equity Audit** — logistic regression on a synthetic request extract, with the operating threshold chosen on validation by weighted error cost, plus a chi-square and covariate-adjusted payer-equity audit. |
+
+They are independent: separate Python packages, dependency files, test suites, CI jobs, and deployed Streamlit apps. Run each from its own directory.
+
 ## Healthcare problem
 
 Interhospital transfer referrals arrive as incomplete, inconsistent narratives. Coordinators must identify clinical support needs, clarify missing details, contact the appropriate service, and reconcile placement with capacity. This prototype turns a synthetic referral into a reviewable summary and a provisional routing suggestion. A human retains responsibility for verification, acceptance, level of care, transport, and placement.

@@ -1,0 +1,22 @@
+{
+  "project_version": "0.1.0",
+  "generated_utc": "2026-09-09T22:59:00+00:00",
+  "seed": 42,
+  "python": "3.12.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "pandas": "2.3.3",
+    "numpy": "2.5.3",
+    "scikit-learn": "1.9.0",
+    "statsmodels": "0.15.0",
+    "scipy": "1.18.1"
+  },
+  "rows_after_clean": 9000,
+  "split_counts": {
+    "train": 5400,
+    "validation": 1800,
+    "test": 1800
+  },
+  "operating_threshold": 0.17,
+  "data": "synthetic \u2014 no real patient, facility, or payer data"
+}
