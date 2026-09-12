@@ -4,7 +4,7 @@ Local verification performed September 9, 2026 on Windows with Python 3.12.4. Ex
 
 - Generated 1,000 synthetic records; all 15 dataset validation checks passed.
 - Trained candidates on 625 records and selected depth on 125 validation records. Reported all 250 test records, including abstentions, failures, and subgroup denominators.
-- 21 pytest checks passed, including capacity invariance, ICU priority, pediatric abstention, unknown versus explicit negative, conflicting evidence, history/conditional text, reproducibility, feature exclusions, unseen ML input, audit validation, duplicate-review rejection, app review/override, stale-result invalidation, and evaluation/governance rendering.
+- 21 pytest checks passed, including capacity invariance, ICU priority, pediatric abstention, unknown versus explicit negative, conflicting evidence, history/conditional text, reproducibility, feature exclusions, unseen ML input, decision-record validation, duplicate-decision rejection, final coordinator decision, stale-result invalidation, and evaluation/governance rendering.
 - Executed all five notebooks with saved outputs; exploratory and model plots are embedded using the inline backend.
 - Opened the local Streamlit server in an isolated Chrome session using agent-browser. Confirmed meaningful page content, synthetic acknowledgment, sample analysis, ICU rationale/capacity warning, and evaluation navigation. Browser page-error and console logs were empty during this check.
 - Captured and visually inspected actual request-review and evaluation screenshots in `docs/screenshots/`.

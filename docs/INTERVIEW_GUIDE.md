@@ -3,7 +3,7 @@
 1. **Workflow problem:** explain the coordinator's work of interpreting an incomplete referral, confirming support needs, locating accepting services, and separating capacity from acuity. Avoid claiming measured time savings.
 2. **Data contract:** show complete scenario facts versus note-visible annotations and missingness. Explain why an absent pressor statement cannot mean no pressors.
 3. **Live review:** select the ICU/capacity example, confirm synthetic data, analyze, inspect evidence, and show that bed unavailability does not lower the suggestion. Load the incomplete example to demonstrate withholding.
-4. **Human control:** record a fictional review or override with a reason; show the local audit event. Explain what a real authenticated audit system would require.
+4. **Human control:** make a final coordinator decision by accepting the suggested route or choosing a different route, document why, and show the local decision record. Explain what a real authenticated audit system would require.
 5. **Honest results:** open Evaluation, discuss rules coverage versus the tree's full coverage, then inspect failures. Explain generator bias, the limits of template holdout, and the need for independently adjudicated clinical validation.
 
 ## Analyst decisions to discuss

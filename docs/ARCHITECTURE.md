@@ -11,8 +11,8 @@ This is an adult, English-language, synthetic-only workflow demonstration. No EH
 - Missing-information detector operates on extracted values; it never fills absent facts from scenario truth.
 - Router consumes extraction output and emits a provisional routing category, rationale, rule IDs, evidence completeness, and human-review warnings. It may abstain when essential support information is unknown.
 - ML uses the same extracted features. It is a comparison, not an override of the deterministic safety checks.
-- Review captures confirmation or override and a reason. Changes to the source note invalidate the previous result. No automatic transfer action exists.
-- Local audit records omit raw notes and are explicitly not a production compliance system.
+- Final coordinator decision captures whether the suggested route was accepted or changed and why. Changes to the source note invalidate the previous result. No automatic transfer action exists.
+- Local decision records omit raw notes and are explicitly not a production compliance system.
 
 ## Label and evaluation design
 

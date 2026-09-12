@@ -26,9 +26,9 @@ flowchart LR
     C --> D[Missing information and conflicts]
     D --> E[Routing rules + explanations]
     C --> F[Interpretable ML comparison]
-    E --> G[Coordinator review and override]
+    E --> G[Final coordinator decision]
     F --> G
-    G --> H[Local audit event]
+    G --> H[Local decision record]
 ```
 
 The extraction interface supports a future optional LLM adapter. The default pipeline runs locally without credentials or paid APIs. Bed availability affects the operational warning, never the inferred clinical support requirement. Specialty review is an escalation workflow, not a physical bed category.
@@ -111,11 +111,11 @@ All five notebooks include executed outputs:
 
 `scripts/generate_data.py` regenerates only the dataset. `scripts/build_project.py` regenerates data, fits the selected tree, and writes reports. `scripts/create_notebooks.py` rebuilds notebook source and clears outputs; rerun notebook execution afterward. GitHub Actions includes pipeline, test, and notebook checks; the workflow has been prepared locally, not run on GitHub.
 
-## Review and audit workflow
+## Final coordinator decision and local record
 
-Load an example or paste fictional text, confirm it is synthetic, and analyze. Review each normalized field alongside its source evidence. Clarify absent/conflicting data, inspect the routing rationale and warnings, and compare the experimental tree if helpful. Confirm or override the route with a fictional reviewer alias, rationale, and explicit acknowledgment.
+Load an example or paste fictional text, confirm it is synthetic, and analyze. Review each normalized field alongside its source evidence. Clarify absent/conflicting data, inspect the routing rationale and warnings, and compare the experimental tree if helpful. The coordinator then accepts the suggested route or chooses a different route, enters a fictional reviewer name and decision rationale, and explicitly acknowledges the review.
 
-Reviews append to local `audit/reviews.jsonl` and can be downloaded. Raw notes and extracted clinical values are excluded from the log. The note hash, review reason, fictional alias, routes, rule IDs, and versions are retained. Editing a note clears its analysis and review state. Recording a review takes no transfer action. Logs and local model binaries are gitignored.
+Decisions append to local `audit/decisions.jsonl` and can be downloaded as a decision record. Raw notes and extracted clinical values are excluded from the log. The note hash, decision rationale, fictional reviewer name, suggested and final routes, rule IDs, and versions are retained. Editing a note clears its analysis and decision state. Recording a final decision takes no transfer action. Logs and local model binaries are gitignored.
 
 ## Limitations and next steps
 

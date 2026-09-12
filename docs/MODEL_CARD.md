@@ -34,7 +34,7 @@ Prototype support rules send pressors or advanced respiratory support to ICU rev
 
 ## Human oversight
 
-All suggestions require source verification by a qualified clinician. Unknowns remain unknown; essential missing facts can trigger abstention. Capacity never downgrades clinical routing. The interface highlights disagreement with the requested unit and the tree. A reviewer can confirm or override any suggestion, with a rationale and explicit review acknowledgment. Editing the referral invalidates the previous analysis; duplicate review submissions are rejected within the local process. Recording a review does not accept, schedule, dispatch, or transfer anyone.
+All suggestions require source verification by a qualified clinician. Unknowns remain unknown; essential missing facts can trigger abstention. Capacity never downgrades clinical routing. The interface highlights disagreement with the requested unit and the tree. A coordinator makes the final decision by accepting the suggested route or choosing a different route, with a rationale and explicit review acknowledgment. Editing the referral invalidates the previous analysis; duplicate decision submissions are rejected within the local process. Recording a final decision does not accept, schedule, dispatch, or transfer anyone.
 
 ## Potential bias
 
@@ -44,11 +44,11 @@ Scenario prevalence, adult-only sampling, English-only text, age distribution, a
 
 All committed records and examples are generated or hand-authored fiction, with no real patient source. The app is bound to localhost by default and has no clinical integration or external inference call. Users must confirm synthetic input. That acknowledgment is not a PHI detector, de-identification process, or security control. Raw notes remain in server session memory while the session is active. Browser extensions, hosting, crash dumps, or machine access could still expose entered text. Do not enter real patient information.
 
-The audit omits raw notes and extracted values but stores a note hash, routing, fictional alias, and free-text reason. Hashing is not anonymization; a reason can contain identifiers if misused. Audit files are gitignored. Model artifacts use joblib: load only locally generated trusted artifacts because pickle-based formats can execute code. Public hosting would require security design beyond this project.
+The local decision record omits raw notes and extracted values but stores a note hash, routing, fictional reviewer name, and free-text rationale. Hashing is not anonymization; a rationale can contain identifiers if misused. Audit files are gitignored. Model artifacts use joblib: load only locally generated trusted artifacts because pickle-based formats can execute code. Public hosting would require security design beyond this project.
 
 ## Audit logging
 
-Append-only-by-convention local JSONL events contain a UUID, analysis ID, UTC time, note SHA-256, extractor/router versions, suggestion, final review, reason, fictional reviewer alias, override flag, completeness, and rule IDs. A process-local lock avoids concurrent thread writes and duplicate analysis submissions. There is no authenticated identity, encryption, immutable retention, cross-process transaction guarantee, legal audit trail, or tamper evidence. Production would need access controls, retention governance, secure storage, and monitored event integrity.
+Append-only-by-convention local JSONL decision records contain a UUID, analysis ID, UTC time, note SHA-256, extractor/router versions, suggested and final routes, rationale, fictional reviewer name, route-change flag, completeness, and rule IDs. A process-local lock avoids concurrent thread writes and duplicate analysis submissions. There is no authenticated identity, encryption, immutable retention, cross-process transaction guarantee, legal audit trail, or tamper evidence. Production would need access controls, retention governance, secure storage, and monitored record integrity.
 
 ## Model drift and monitoring proposal
 

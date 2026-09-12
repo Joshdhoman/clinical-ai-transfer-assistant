@@ -4,7 +4,7 @@ from streamlit.testing.v1 import AppTest
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_app_analysis_override_and_stale_state(tmp_path, monkeypatch):
+def test_app_final_decision_and_stale_state(tmp_path, monkeypatch):
     monkeypatch.setenv("TRANSFER_AUDIT_PATH", str(tmp_path / "audit.jsonl"))
     app = AppTest.from_file(str(ROOT / "app.py"), default_timeout=30).run()
     assert not app.exception
@@ -12,19 +12,24 @@ def test_app_analysis_override_and_stale_state(tmp_path, monkeypatch):
     app.button[0].click().run()
     assert not app.exception
     assert app.session_state["analysis"]["recommendation"].route == "ICU"
+    assert app.subheader[-1].value == "03 / Final coordinator decision"
+    assert app.selectbox[1].label == "Final routing decision"
+    assert app.text_input[0].label == "Reviewer name (fictional)"
+    assert app.text_area[1].label == "Decision rationale (synthetic only)"
     # Review validation should reject an unchecked acknowledgment.
     app.button[1].click().run()
-    assert any("Confirm human review" in e.value for e in app.error)
+    assert any("Acknowledge the coordinator review" in e.value for e in app.error)
     app.selectbox[1].select("specialty review")
     app.text_area[1].input("Synthetic alternate pathway reviewed with fictional receiving team.")
     app.checkbox[1].check()
     app.button[1].click().run()
     assert not app.exception
-    assert app.session_state["review_saved"]["overridden"]
+    assert app.session_state["decision_saved"]["route_changed"]
+    assert app.session_state["decision_saved"]["reviewer_name"] == "Demo coordinator"
     assert (tmp_path / "audit.jsonl").exists()
     app.text_area(key="note").input("SYNTHETIC CASE. Age: 71.").run()
     assert app.session_state["analysis"] is None
-    assert app.session_state["review_saved"] is None
+    assert app.session_state["decision_saved"] is None
 
 
 def test_evaluation_and_governance_render():

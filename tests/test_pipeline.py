@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from transfer_assistant.audit import append_event, review_event
+from transfer_assistant.audit import append_record, decision_record
 from transfer_assistant.examples import EXAMPLES
 from transfer_assistant.extraction import RuleBasedExtractor
 from transfer_assistant.modeling import FEATURES, feature_frame, train_model
@@ -103,21 +103,22 @@ def test_ml_contract_and_unseen_category(extractor):
     assert selection["selected_depth"] in [3, 4, 5, 6]
 
 
-def test_review_requires_verification_reason_and_valid_route(extractor, tmp_path):
+def test_decision_requires_acknowledgment_rationale_and_valid_route(extractor, tmp_path):
     note = EXAMPLES["Telemetry referral"]
     r = extractor.extract(note)
     rec = recommend(r)
     with pytest.raises(ValueError):
-        review_event(note, r, rec, "ICU", "Reason is recorded", "Demo", False, "analysis")
+        decision_record(note, r, rec, "ICU", "Reason is recorded", "Demo", False, "analysis")
     with pytest.raises(ValueError):
-        review_event(note, r, rec, "ICU", "short", "Demo", True, "analysis")
+        decision_record(note, r, rec, "ICU", "short", "Demo", True, "analysis")
     with pytest.raises(ValueError):
-        review_event(note, r, rec, "arbitrary route", "Reason is recorded", "Demo", True, "analysis")
-    event = review_event(note, r, rec, "ICU", "Synthetic escalation reviewed", "Demo", True, "analysis")
+        decision_record(note, r, rec, "arbitrary route", "Reason is recorded", "Demo", True, "analysis")
+    record = decision_record(note, r, rec, "ICU", "Synthetic escalation reviewed", "Demo", True, "analysis")
     path = tmp_path / "events.jsonl"
-    append_event(event, path)
-    assert json.loads(path.read_text())["overridden"]
+    append_record(record, path)
+    assert json.loads(path.read_text())["route_changed"]
+    assert json.loads(path.read_text())["reviewer_name"] == "Demo"
     assert note not in path.read_text()
-    assert "extracted_values" not in event
+    assert "extracted_values" not in record
     with pytest.raises(ValueError):
-        append_event(event, path)
+        append_record(record, path)

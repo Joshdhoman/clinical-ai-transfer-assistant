@@ -1,4 +1,4 @@
-"""Human review workbench. Run: python -m streamlit run app.py."""
+"""Coordinator decision workbench. Run: python -m streamlit run app.py."""
 
 import json
 import os
@@ -10,7 +10,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-from transfer_assistant.audit import append_event, review_event
+from transfer_assistant.audit import append_record, decision_record
 from transfer_assistant.examples import EXAMPLES
 from transfer_assistant.extraction import RuleBasedExtractor
 from transfer_assistant.modeling import explain_tree
@@ -21,12 +21,12 @@ ROOT = Path(__file__).resolve().parent
 st.set_page_config(page_title="Clinical AI | Transfer operations", page_icon=":material/hub:", layout="wide")
 st.session_state.setdefault("note", next(iter(EXAMPLES.values())))
 st.session_state.setdefault("analysis", None)
-st.session_state.setdefault("review_saved", None)
+st.session_state.setdefault("decision_saved", None)
 
 
 def invalidate():
     st.session_state.analysis = None
-    st.session_state.review_saved = None
+    st.session_state.decision_saved = None
 
 
 def load_example():
@@ -77,7 +77,7 @@ if page == "Request review":
                     recommendation = recommend(extraction)
                     st.session_state.analysis = {"note": note, "extraction": extraction,
                                                  "recommendation": recommendation, "id": str(uuid.uuid4())}
-                    st.session_state.review_saved = None
+                    st.session_state.decision_saved = None
                 except ValueError as exc:
                     st.error(str(exc))
         st.caption("Notes are processed locally and are not written to the audit log. This demo does not detect or de-identify PHI.")
@@ -137,30 +137,30 @@ if page == "Request review":
                 st.code("\n".join(comparison["decision_path"]), language="text")
             else:
                 st.info("The optional comparison model is not built. Run python scripts/build_project.py; rule-based review is available now.")
-        st.subheader("03 / Human review and override")
-        if st.session_state.review_saved:
-            event = st.session_state.review_saved
-            st.success(f"Review recorded: {event['reviewed_route']}. No transfer action was taken.")
-            st.download_button("Download review event", json.dumps(event, indent=2), file_name="synthetic_review.json", mime="application/json")
+        st.subheader("03 / Final coordinator decision")
+        if st.session_state.decision_saved:
+            record = st.session_state.decision_saved
+            st.success(f"Final decision recorded: {record['final_route']}. No transfer action was taken.")
+            st.download_button("Download decision record", json.dumps(record, indent=2), file_name="synthetic_decision_record.json", mime="application/json")
         else:
-            with st.form("human_review"):
+            with st.form("final_decision"):
                 c1, c2 = st.columns(2)
-                selected = c1.selectbox("Reviewed routing", [ABSTAIN] + ROUTES,
+                selected = c1.selectbox("Final routing decision", [ABSTAIN] + ROUTES,
                                         index=([ABSTAIN] + ROUTES).index(rec.route))
-                reviewer = c2.text_input("Fictional reviewer alias", value="Demo coordinator", max_chars=80)
-                reason = st.text_area("Review rationale / override reason (synthetic only)", max_chars=1000,
+                reviewer = c2.text_input("Reviewer name (fictional)", value="Demo coordinator", max_chars=80)
+                reason = st.text_area("Decision rationale (synthetic only)", max_chars=1000,
                                       placeholder="Explain what you verified and why you confirmed or changed the route.")
-                verified = st.checkbox("I reviewed the source evidence, missing fields, warnings, and final routing.")
-                save = st.form_submit_button("Record human review", type="primary")
+                verified = st.checkbox("I reviewed the evidence, missing information, warnings, and final route.")
+                save = st.form_submit_button("Record final decision", type="primary")
             if save:
                 try:
-                    event = review_event(note, extraction, rec, selected, reason, reviewer, verified, analysis["id"])
-                    append_event(event, Path(os.environ.get("TRANSFER_AUDIT_PATH", str(ROOT / "audit/reviews.jsonl"))))
-                    st.session_state.review_saved = event
+                    record = decision_record(note, extraction, rec, selected, reason, reviewer, verified, analysis["id"])
+                    append_record(record, Path(os.environ.get("TRANSFER_AUDIT_PATH", str(ROOT / "audit/decisions.jsonl"))))
+                    st.session_state.decision_saved = record
                     st.rerun()
                 except (ValueError, OSError) as exc:
                     st.error(f"Review was not recorded: {exc}")
-            st.caption("Local audit stores route, reason, fictional alias, versions, and note hash. Do not enter identifiers in the rationale. It has no authentication or tamper resistance.")
+            st.caption("The local decision record stores the route, rationale, fictional reviewer name, versions, and note hash. Do not enter identifiers in the rationale. It has no authentication or tamper resistance.")
 
 elif page == "Evaluation":
     st.subheader("Measured performance on synthetic requests")
