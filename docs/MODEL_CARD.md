@@ -28,7 +28,7 @@ Unsupported abbreviations, temporality, negation scope, multi-device transitions
 
 ## Explainability and confidence
 
-The extractor exposes matched text, normalized values, and contradictions. The router returns rule IDs and plain-language rationale. Tree output includes its actual feature decision path. Confidence is a qualitative documentation-support label; the percentage shown is the fraction of critical fields available. It is **not calibrated probability, clinical certainty, or likelihood of a successful transfer**. Tree leaf proportions are class-weighted and uncalibrated. There is no clinically validated confidence threshold.
+The extractor exposes matched text, normalized values, and contradictions. The router returns rule IDs and plain-language rationale. Tree output includes its actual feature decision path. Confidence is a qualitative documentation-support label; the percentage shown is the fraction of routing fields available. It is **not calibrated probability, clinical certainty, or likelihood of a successful transfer**. Tree leaf proportions are class-weighted and uncalibrated. There is no clinically validated confidence threshold.
 
 Prototype support rules send pressors or advanced respiratory support to ICU review, otherwise check specialty and monitoring needs before a routine suggestion. This is not a universal clinical standard: actual HFNC/NIV placement, telemetry criteria, and service acceptance depend on local policies, trends, staffing, and clinician assessment. Specialty review is an acceptance/escalation pathway, not a level of care. The system surfaces low vital readings for human review without claiming a complete acuity assessment.
 

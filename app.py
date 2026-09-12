@@ -100,7 +100,7 @@ if page == "Request review":
                 st.badge("Human review required", color="orange", icon=":material/person_check:")
                 st.markdown(f"### {rec.route.capitalize() if rec.route != 'ICU' else 'ICU'}")
                 st.write("**Confidence:** " + rec.confidence)
-                st.progress(rec.completeness, text=f"Critical-field completeness: {rec.completeness:.0%}")
+                st.progress(rec.completeness, text=f"Routing-field completeness: {rec.completeness:.0%}")
                 st.caption("Completeness measures documentation, not the probability that a route is correct.")
                 for rule, reason in zip(rec.rule_ids, rec.reasons):
                     st.write(f"**{rule}** · {reason}")

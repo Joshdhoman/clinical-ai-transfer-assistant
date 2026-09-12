@@ -62,7 +62,7 @@ def extraction_metrics(data, results):
                      "precision": p, "recall": r, "f1": 2*p*r/(p+r) if p+r else 0,
                      "tp": tp, "fp": fp, "fn": fn})
     p, r, f, _ = precision_recall_fscore_support(truth_missing, pred_missing, average="binary", zero_division=0)
-    missing = {"unit": "critical field per test note", "positive": "unavailable (absent or conflicting)",
+    missing = {"unit": "routing field per test note", "positive": "unavailable (absent or conflicting)",
                "precision": float(p), "recall": float(r), "f1": float(f),
                "accuracy": float(accuracy_score(truth_missing, pred_missing)),
                "confusion_matrix": confusion_matrix(truth_missing, pred_missing, labels=[False, True]).tolist()}
@@ -134,7 +134,7 @@ def run_pipeline(root: Path) -> dict:
     failure_frame.to_csv(root / "reports/failures.csv", index=False)
     subgroups = []
     predictions["age_band"] = pd.cut(predictions.patient_age, [17, 39, 64, 120], labels=["18-39", "40-64", "65+"])
-    predictions["completeness_group"] = np.where(predictions.critical_missing_count == 0, "complete critical fields", "incomplete critical fields")
+    predictions["completeness_group"] = np.where(predictions.critical_missing_count == 0, "complete routing fields", "incomplete routing fields")
     for dimension in ["age_band", "referring_facility", "completeness_group", "template_family"]:
         for group, frame in predictions.groupby(dimension, observed=True):
             for approach in ["rules", "decision_tree"]:
@@ -170,7 +170,7 @@ def run_pipeline(root: Path) -> dict:
         examples = failure_frame.groupby(["approach", "failure_type"], sort=True).head(1)
         for row in examples.itertuples():
             report.extend([f"### {row.request_id} — {row.approach}: {row.failure_type}", "",
-                           f"Scenario target: **{row.expected}**. Prediction: **{row.predicted}**. Missing critical fields: {row.critical_missing_count}.",
+                           f"Scenario target: **{row.expected}**. Prediction: **{row.predicted}**. Missing routing fields: {row.critical_missing_count}.",
                            "", row.note, "", f"Rules rationale: {row.rule_explanation}", ""])
     report.extend(["## Files", "", "See `metrics.json`, `test_predictions.csv`, `failures.csv`, `extraction_metrics.csv`, `extraction_errors.csv`, `subgroups.csv`, and `decision_tree.txt` for complete results."])
     (root / "reports/RESULTS.md").write_text("\n".join(report) + "\n", encoding="utf-8")

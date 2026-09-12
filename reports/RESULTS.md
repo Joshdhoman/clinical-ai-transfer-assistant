@@ -36,7 +36,7 @@ Missing-field scoring treats both absence and contradiction as unavailable. Extr
 
 ### SYN-0007 — rules: abstention
 
-Scenario target: **telemetry**. Prediction: **insufficient information**. Missing critical fields: 1.
+Scenario target: **telemetry**. Prediction: **insufficient information**. Missing routing fields: 1.
 
 SYNTHETIC TRAINING CASE. Referrer asks for telemetry bed. Timing: urgent. BP 113/70. Service needed: cardiology. Resp status: nasal cannula. Capacity status: available. Pt is 30 y/o. Needs tele. Currently on norepinephrine. No tertiary specialty assessment needed. Required isolation: none. Pulse 97. Referrer: Synthetic Prairie Hospital. Working diagnosis: heart failure. O2 sat 96%. No vasoactive infusion.
 
@@ -44,7 +44,7 @@ Rules rationale: Essential referral or support facts are unknown; a lower-acuity
 
 ### SYN-0071 — decision_tree: route mismatch
 
-Scenario target: **medical/surgical**. Prediction: **telemetry**. Missing critical fields: 1.
+Scenario target: **medical/surgical**. Prediction: **telemetry**. Missing routing fields: 1.
 
 SYNTHETIC TRAINING CASE. Referrer: Synthetic West Community. Pulse 61. No vasoactive infusion. Service needed: internal medicine. Pt is 25 y/o. O2 sat 99%. Timing: routine. Working diagnosis: pneumonia. Resp status: nasal cannula. BP 116/70. Capacity status: limited. No tertiary specialty assessment needed. Required isolation: contact.
 
@@ -52,7 +52,7 @@ Rules rationale: Specialty or monitoring requirements are unknown; clarify befor
 
 ### SYN-0975 — decision_tree: ICU false positive
 
-Scenario target: **medical/surgical**. Prediction: **ICU**. Missing critical fields: 3.
+Scenario target: **medical/surgical**. Prediction: **ICU**. Missing routing fields: 3.
 
 SYNTHETIC TRAINING CASE. Timing: urgent. No vasoactive infusion. Working diagnosis: urinary tract infection. Pulse 104. Capacity status: available. Referrer asks for medical/surgical bed. O2 sat 100%. Pt is 22 y/o. Required isolation: contact. Service needed: internal medicine. No tertiary specialty assessment needed. Specialists contacted: internal medicine. If deterioration occurs, consider norepinephrine.
 

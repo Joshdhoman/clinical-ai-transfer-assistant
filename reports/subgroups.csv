@@ -15,10 +15,10 @@ referring_facility,Synthetic Valley ED,rules,58,0.7241379310344828,0.82819004524
 referring_facility,Synthetic Valley ED,decision_tree,58,0.9827586206896551,0.9843597262952102,1.0,0
 referring_facility,Synthetic West Community,rules,46,0.6739130434782609,0.768125960061444,0.6739130434782609,1
 referring_facility,Synthetic West Community,decision_tree,46,0.9347826086956522,0.9337197889829469,1.0,0
-completeness_group,complete critical fields,rules,114,1.0,1.0,1.0,0
-completeness_group,complete critical fields,decision_tree,114,1.0,1.0,1.0,0
-completeness_group,incomplete critical fields,rules,136,0.5073529411764706,0.6128205128205128,0.5073529411764706,2
-completeness_group,incomplete critical fields,decision_tree,136,0.9558823529411765,0.9552455856013247,1.0,0
+completeness_group,complete routing fields,rules,114,1.0,1.0,1.0,0
+completeness_group,complete routing fields,decision_tree,114,1.0,1.0,1.0,0
+completeness_group,incomplete routing fields,rules,136,0.5073529411764706,0.6128205128205128,0.5073529411764706,2
+completeness_group,incomplete routing fields,decision_tree,136,0.9558823529411765,0.9552455856013247,1.0,0
 template_family,6,rules,125,0.72,0.8081613231191185,0.72,2
 template_family,6,decision_tree,125,0.968,0.964217940049583,1.0,0
 template_family,7,rules,125,0.744,0.8279793345819567,0.744,0

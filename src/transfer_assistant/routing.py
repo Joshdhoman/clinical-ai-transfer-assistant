@@ -12,7 +12,7 @@ def recommend(result: Extraction) -> Recommendation:
     completeness = (len(CRITICAL) - len(missing["critical"])) / len(CRITICAL)
     warnings = ["Prototype assumptions only; a qualified clinician must verify acuity and destination."]
     if missing["critical"]:
-        warnings.append("Clarify critical fields: " + ", ".join(missing["critical"]) + ".")
+        warnings.append("Clarify routing fields: " + ", ".join(missing["critical"]) + ".")
     if result.conflicts:
         warnings.append("Conflicting statements require source verification: " + ", ".join(result.conflicts) + ".")
     if v["bed_availability"] in {"limited", "unavailable"}:
